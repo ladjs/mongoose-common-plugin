@@ -72,15 +72,10 @@ const mongooseCommonPlugin = (schema, options = {}) => {
       .join(' ');
   } else if (isObject(omitExtraFields)) {
     select = omitExtraFields;
-    console.log('select', select);
     if (omitCommonFields) Object.assign(select, field.obj);
-    console.log('object assign', field.obj);
-    console.log('select now', select);
   } else if (omitCommonFields) {
     select = field.str;
   }
-
-  console.log('select', select);
 
   schema.set(
     'toJSON',
