@@ -1,0 +1,123 @@
+{
+  "name": "mongoose-common-plugin",
+  "description": "Common plugin for Mongoose with standard schema fields and localization support",
+  "version": "0.0.1",
+  "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
+  "bugs": {
+    "url": "https://github.com/ladjs/mongoose-common-plugin/issues",
+    "email": "niftylettuce@gmail.com"
+  },
+  "contributors": [
+    "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
+  ],
+  "dependencies": {
+    "lodash.isarray": "^4.0.0",
+    "lodash.isobject": "^3.0.2",
+    "mongoose-beautiful-unique-validation": "^7.0.0",
+    "mongoose-json-select": "^0.2.1",
+    "mongoose-omit-common-fields": "^0.0.3",
+    "mongoose-validation-error-transform": "^0.0.2"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "codecov": "^2.3.0",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.5.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-prettier": "^2.2.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.4",
+    "mongoose": "^4.11.11",
+    "nyc": "^11.1.0",
+    "prettier": "^1.6.1",
+    "remark-cli": "^4.0.0",
+    "remark-preset-github": "^0.0.6",
+    "xo": "^0.19.0"
+  },
+  "engines": {
+    "node": ">=8.3"
+  },
+  "homepage": "https://github.com/ladjs/mongoose-common-plugin",
+  "keywords": [
+    "mongoose",
+    "common",
+    "plugin",
+    "koa",
+    "lad",
+    "schema",
+    "field",
+    "id",
+    "virtual",
+    "localization",
+    "locale",
+    "locales",
+    "i18n",
+    "i10n",
+    "helper",
+    "timestamp",
+    "created",
+    "updated",
+    "lass"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx,mjs,ts,tsx,css,less,scss,json,graphql}": [
+      "prettier --write --single-quote --trailing-comma none",
+      "git add"
+    ],
+    "*.md": [
+      "remark . -qfo",
+      "git add"
+    ]
+  },
+  "main": "index.js",
+  "remarkConfig": {
+    "plugins": [
+      "preset-github"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ladjs/mongoose-common-plugin"
+  },
+  "scripts": {
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "xo && remark . -qfo",
+    "precommit": "lint-staged && npm test",
+    "test": "npm run lint && npm run test-coverage",
+    "test-coverage": "cross-env NODE_ENV=test nyc ava"
+  },
+  "xo": {
+    "extends": "prettier",
+    "plugins": [
+      "prettier"
+    ],
+    "parserOptions": {
+      "sourceType": "script"
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "bracketSpacing": true,
+          "trailingComma": "none"
+        }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 80,
+          "ignoreUrls": true
+        }
+      ],
+      "capitalized-comments": "off",
+      "camelcase": "off",
+      "no-warning-comments": "off"
+    },
+    "space": true
+  },
+  "peerDependencies": {
+    "mongoose": ">=4.11.4"
+  }
+}
