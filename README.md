@@ -1,5 +1,7 @@
 # mongoose-common-plugin
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ladjs/mongoose-common-plugin.svg)](https://greenkeeper.io/)
+
 [![build status](https://img.shields.io/travis/ladjs/mongoose-common-plugin.svg)](https://travis-ci.org/ladjs/mongoose-common-plugin)
 [![code coverage](https://img.shields.io/codecov/c/github/ladjs/mongoose-common-plugin.svg)](https://codecov.io/gh/ladjs/mongoose-common-plugin)
 [![code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
