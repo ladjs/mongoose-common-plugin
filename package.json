@@ -1,7 +1,8 @@
 {
   "name": "mongoose-common-plugin",
-  "description": "Common plugin for Mongoose with standard schema fields and localization support",
-  "version": "0.0.1",
+  "description":
+    "Common plugin for Mongoose with standard schema fields and localization support",
+  "version": "0.0.2",
   "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
   "bugs": {
     "url": "https://github.com/ladjs/mongoose-common-plugin/issues",
@@ -65,16 +66,11 @@
       "prettier --write --single-quote --trailing-comma none",
       "git add"
     ],
-    "*.md": [
-      "remark . -qfo",
-      "git add"
-    ]
+    "*.md": ["remark . -qfo", "git add"]
   },
   "main": "index.js",
   "remarkConfig": {
-    "plugins": [
-      "preset-github"
-    ]
+    "plugins": ["preset-github"]
   },
   "repository": {
     "type": "git",
@@ -89,9 +85,7 @@
   },
   "xo": {
     "extends": "prettier",
-    "plugins": [
-      "prettier"
-    ],
+    "plugins": ["prettier"],
     "parserOptions": {
       "sourceType": "script"
     },
