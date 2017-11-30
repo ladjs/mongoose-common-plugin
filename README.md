@@ -44,6 +44,8 @@ const mongoose = require('mongoose');
 const User = new mongoose.Schema({});
 
 User.plugin(mongooseCommonPlugin, { object: 'user' });
+
+module.exports = mongoose.model('User', User);
 ```
 
 

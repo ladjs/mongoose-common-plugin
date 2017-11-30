@@ -12,27 +12,30 @@
     "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
   ],
   "dependencies": {
+    "lodash": "^4.17.4",
     "lodash.isarray": "^4.0.0",
     "lodash.isobject": "^3.0.2",
     "mongoose-beautiful-unique-validation": "^7.0.0",
     "mongoose-json-select": "^0.2.1",
     "mongoose-omit-common-fields": "^0.0.3",
-    "mongoose-validation-error-transform": "^0.0.2"
+    "mongoose-validation-error-transform": "^0.0.2",
+    "speakingurl": "^14.0.1",
+    "underscore.string": "^3.3.4"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "codecov": "^2.3.0",
+    "ava": "^0.24.0",
+    "codecov": "^3.0.0",
     "cross-env": "^5.0.5",
     "eslint": "^4.5.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "husky": "^0.14.3",
-    "lint-staged": "^4.0.4",
+    "lint-staged": "^5.0.0",
     "mongoose": "^4.11.11",
     "nyc": "^11.1.0",
     "prettier": "^1.6.1",
     "remark-cli": "^4.0.0",
-    "remark-preset-github": "^0.0.6",
+    "remark-preset-github": "^0.0.7",
     "xo": "^0.19.0"
   },
   "engines": {
