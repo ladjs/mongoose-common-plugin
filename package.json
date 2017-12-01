@@ -30,7 +30,7 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "husky": "^0.14.3",
-    "lint-staged": "^5.0.0",
+    "lint-staged": "^6.0.0",
     "mongoose": "^4.11.11",
     "nyc": "^11.1.0",
     "prettier": "^1.6.1",
@@ -113,8 +113,5 @@
       "no-warning-comments": "off"
     },
     "space": true
-  },
-  "peerDependencies": {
-    "mongoose": ">=4.11.4"
   }
 }

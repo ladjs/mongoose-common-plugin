@@ -2,7 +2,6 @@ const jsonSelect = require('mongoose-json-select');
 const beautifulValidation = require('mongoose-beautiful-unique-validation');
 const validationErrorTransform = require('mongoose-validation-error-transform');
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
-const isArray = require('lodash.isarray');
 const isObject = require('lodash.isobject');
 
 const mongooseCommonPlugin = (schema, options = {}) => {
@@ -57,7 +56,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
   const field =
     mongooseOmitCommonFields[camelCase ? 'camelCased' : 'underscored'];
 
-  if (isArray(omitExtraFields)) {
+  if (Array.isArray(omitExtraFields)) {
     select = [];
 
     if (omitCommonFields) select = select.concat(field.keys);
