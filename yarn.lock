@@ -1104,7 +1104,7 @@ create-error-class@^3.0.0:
   dependencies:
     capture-stack-trace "^1.0.0"
 
-cross-env@^5.0.5:
+cross-env@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.1.1.tgz#b6d8ab97f304c0f71dae7277b75fe424c08dfa74"
   dependencies:
@@ -1389,7 +1389,7 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-prettier@^2.3.0:
+eslint-config-prettier@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.9.0.tgz#5ecd65174d486c22dff389fe036febf502d468a3"
   dependencies:
@@ -1460,7 +1460,7 @@ eslint-plugin-no-use-extend-native@^0.3.2:
     is-obj-prop "^1.0.0"
     is-proto-prop "^1.0.0"
 
-eslint-plugin-prettier@^2.2.0:
+eslint-plugin-prettier@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.3.1.tgz#e7a746c67e716f335274b88295a9ead9f544e44d"
   dependencies:
@@ -1528,7 +1528,7 @@ eslint@^3.18.0:
     text-table "~0.2.0"
     user-home "^2.0.0"
 
-eslint@^4.5.0:
+eslint@^4.12.1:
   version "4.12.1"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.12.1.tgz#5ec1973822b4a066b353770c3c6d69a2a188e880"
   dependencies:
@@ -2888,17 +2888,9 @@ lodash.get@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
 
-lodash.isarray@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-4.0.0.tgz#2aca496b28c4ca6d726715313590c02e6ea34403"
-
 lodash.isequal@^4.4.0, lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-
-lodash.isobject@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
 
 lodash.kebabcase@^4.0.1:
   version "4.1.1"
@@ -3165,9 +3157,9 @@ mongodb@2.2.33:
     mongodb-core "2.1.17"
     readable-stream "2.2.7"
 
-mongoose-beautiful-unique-validation@^7.0.0:
+"mongoose-beautiful-unique-validation@https://github.com/niftylettuce/mongoose-beautiful-unique-validation":
   version "7.0.0"
-  resolved "https://registry.yarnpkg.com/mongoose-beautiful-unique-validation/-/mongoose-beautiful-unique-validation-7.0.0.tgz#24a7db461d0ad1d0ef2b802ed78777dc4266cc2a"
+  resolved "https://github.com/niftylettuce/mongoose-beautiful-unique-validation#339cf4d4c580f97ce62b8832094794fb37fa215b"
 
 mongoose-json-select@^0.2.1:
   version "0.2.1"
@@ -3188,7 +3180,7 @@ mongoose-validation-error-transform@^0.0.2:
     lodash "^4.17.4"
     underscore.string "^3.3.4"
 
-mongoose@^4.11.11:
+mongoose@^4.13.5:
   version "4.13.5"
   resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.13.5.tgz#5ae9df5ef8151efbadc33a71068dd879ae720cd2"
   dependencies:
@@ -3371,7 +3363,7 @@ number-to-words@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/number-to-words/-/number-to-words-1.2.3.tgz#4b713ab0c24015911187a0a03b59103569d7f49b"
 
-nyc@^11.1.0:
+nyc@^11.3.0:
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/nyc/-/nyc-11.3.0.tgz#a42bc17b3cfa41f7b15eb602bc98b2633ddd76f0"
   dependencies:
@@ -3738,7 +3730,7 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.6.1:
+prettier@^1.8.2:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.8.2.tgz#bff83e7fd573933c607875e5ba3abbdffb96aeb8"
 
@@ -3995,7 +3987,7 @@ remark-heading-gap@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/remark-heading-gap/-/remark-heading-gap-3.0.0.tgz#f52ac47a27995ef3248a59eb7544b5620b4736a6"
 
-"remark-license@github:niftylettuce/remark-license":
+remark-license@niftylettuce/remark-license:
   version "4.0.1"
   resolved "https://codeload.github.com/niftylettuce/remark-license/tar.gz/17ecb8f64f8f6082414d14f9267a12764e6ddbfb"
   dependencies:

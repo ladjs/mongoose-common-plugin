@@ -1,8 +1,8 @@
 const jsonSelect = require('mongoose-json-select');
 const beautifulValidation = require('mongoose-beautiful-unique-validation');
+const { isObject } = require('lodash');
 const validationErrorTransform = require('mongoose-validation-error-transform');
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
-const isObject = require('lodash.isobject');
 
 const mongooseCommonPlugin = (schema, options = {}) => {
   options = Object.assign(
