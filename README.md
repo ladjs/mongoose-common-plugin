@@ -72,7 +72,7 @@ module.exports = mongoose.model('User', User);
 
   // either an Array or Object
   // these will get added to `mongoose-json-select`
-  // and are extra fields you'd like to ignore from toJSON/toObject calls
+  // and are extra fields you'd like to ignore from toJSON calls
   // (e.g. `omitExtraFields: [ 'some_field_to_ignore' ]`)
   // note that we automatically add the `-` prefix to keys for Arrays passed
   omitExtraFields: []
