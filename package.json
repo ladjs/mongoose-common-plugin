@@ -16,7 +16,7 @@
     "mongoose-beautiful-unique-validation":
       "https://github.com/niftylettuce/mongoose-beautiful-unique-validation",
     "mongoose-json-select": "^0.2.1",
-    "mongoose-omit-common-fields": "^0.0.3",
+    "mongoose-omit-common-fields": "^0.0.4",
     "mongoose-validation-error-transform": "^0.0.2",
     "speakingurl": "^14.0.1",
     "underscore.string": "^3.3.4"

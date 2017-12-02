@@ -3167,9 +3167,9 @@ mongoose-json-select@^0.2.1:
   dependencies:
     clone "0.1.9"
 
-mongoose-omit-common-fields@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/mongoose-omit-common-fields/-/mongoose-omit-common-fields-0.0.3.tgz#a010c1624bb8f88fac35f91e811e7264f83973ac"
+mongoose-omit-common-fields@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/mongoose-omit-common-fields/-/mongoose-omit-common-fields-0.0.4.tgz#2c68840d483c32aa21b9e388522d5ab7d473cde6"
   dependencies:
     camelcase "^4.1.0"
 
