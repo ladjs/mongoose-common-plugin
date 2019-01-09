@@ -5,16 +5,14 @@ const validationErrorTransform = require('mongoose-validation-error-transform');
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
 
 const mongooseCommonPlugin = (schema, options = {}) => {
-  options = Object.assign(
-    {
-      object: '',
-      camelCase: false,
-      locale: true,
-      omitCommonFields: true,
-      omitExtraFields: []
-    },
-    options
-  );
+  options = {
+    object: '',
+    camelCase: false,
+    locale: true,
+    omitCommonFields: true,
+    omitExtraFields: [],
+    ...options
+  };
 
   const { camelCase, locale, omitCommonFields, omitExtraFields } = options;
 
@@ -76,17 +74,12 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     select = field.str;
   }
 
-  schema.set(
-    'toJSON',
-    Object.assign(
-      {
-        getters: true,
-        versionKey: false,
-        select
-      },
-      schema.options.toJSON
-    )
-  );
+  schema.set('toJSON', {
+    getters: true,
+    versionKey: false,
+    select,
+    ...schema.options.toJSON
+  });
 
   schema.set('timestamps', {
     createdAt: camelCase ? 'createdAt' : 'created_at',

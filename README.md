@@ -112,7 +112,7 @@ const User = new mongoose.Schema({
 
 ```js
 try {
-  user.locale = ctx.req.locale;
+  user.locale = ctx.request.locale;
   await user.validate();
 } catch (err) {
   // will throw localized validation error message for `user.email`
