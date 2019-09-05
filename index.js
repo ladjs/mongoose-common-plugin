@@ -1,8 +1,8 @@
 const jsonSelect = require('mongoose-json-select');
-const beautifulValidation = require('mongoose-beautiful-unique-validation');
-const { isObject } = require('lodash');
-const validationErrorTransform = require('mongoose-validation-error-transform');
+const mongooseErrorMessages = require('@ladjs/mongoose-error-messages');
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
+const uniqueValidator = require('mongoose-unique-validator');
+const validationErrorTransform = require('mongoose-validation-error-transform');
 
 const mongooseCommonPlugin = (schema, options = {}) => {
   options = {
@@ -11,6 +11,14 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     locale: true,
     omitCommonFields: true,
     omitExtraFields: [],
+    // <https://github.com/blakehaswell/mongoose-unique-validator>
+    uniqueValidator: {
+      message: mongooseErrorMessages.general.unique
+    },
+    // <https://github.com/niftylettuce/mongoose-validation-error-transform>
+    validationErrorTransform: {},
+    // <https://github.com/nkzawa/mongoose-json-select>
+    jsonSelect: {},
     ...options
   };
 
@@ -67,7 +75,10 @@ const mongooseCommonPlugin = (schema, options = {}) => {
         return `-${key}`;
       })
       .join(' ');
-  } else if (isObject(omitExtraFields)) {
+  } else if (
+    typeof omitExtraFields === 'object' &&
+    !Array.isArray(omitExtraFields)
+  ) {
     select = omitExtraFields;
     if (omitCommonFields) Object.assign(select, field.obj);
   } else if (omitCommonFields) {
@@ -86,9 +97,9 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     updatedAt: camelCase ? 'updatedAt' : 'updated_at'
   });
 
-  schema.plugin(jsonSelect);
-  schema.plugin(beautifulValidation);
-  schema.plugin(validationErrorTransform);
+  schema.plugin(uniqueValidator, options.uniqueValidator);
+  schema.plugin(jsonSelect, options.jsonSelect);
+  schema.plugin(validationErrorTransform, options.validationErrorTransform);
 
   return schema;
 };

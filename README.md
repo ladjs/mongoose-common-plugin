@@ -75,7 +75,20 @@ module.exports = mongoose.model('User', User);
   // and are extra fields you'd like to ignore from toJSON calls
   // (e.g. `omitExtraFields: [ 'some_field_to_ignore' ]`)
   // note that we automatically add the `-` prefix to keys for Arrays passed
-  omitExtraFields: []
+  omitExtraFields: [],
+
+  // options to pass to `mongoose-unique-validator`
+  uniqueValidator: {
+    message: require('@ladjs/mongoose-error-messages').general.unique
+  },
+
+  // options to pass to `mongoose-validation-error-transform`
+  // <https://github.com/niftylettuce/mongoose-validation-error-transform>
+  validationErrorTransform: {},
+
+  // options to pass to `mongoose-json-select`
+  // <https://github.com/nkzawa/mongoose-json-select>
+  jsonSelect: {}
 }
 ```
 
