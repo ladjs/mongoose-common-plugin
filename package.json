@@ -1,7 +1,7 @@
 {
   "name": "mongoose-common-plugin",
   "description": "Common plugin for Mongoose with standard schema fields and localization support",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
   "bugs": {
     "url": "https://github.com/ladjs/mongoose-common-plugin/issues",
