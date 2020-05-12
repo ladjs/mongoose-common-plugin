@@ -3,6 +3,7 @@ const mongooseErrorMessages = require('@ladjs/mongoose-error-messages');
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
 const uniqueValidator = require('mongoose-unique-validator');
 const validationErrorTransform = require('mongoose-validation-error-transform');
+const { boolean } = require('boolean');
 
 const mongooseCommonPlugin = (schema, options = {}) => {
   options = {
@@ -33,7 +34,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     id: {
       type: String,
       index: true,
-      unique: true
+      unique: boolean(options.uniqueId)
     },
     object: {
       type: String,

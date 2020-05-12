@@ -854,6 +854,11 @@ blueimp-md5@^2.10.0:
   resolved "https://registry.yarnpkg.com/blueimp-md5/-/blueimp-md5-2.15.0.tgz#ae945f87ca6c2c11e2562983e11450b0545f9bb3"
   integrity sha512-Zc6sowqlCWu3+V0bocZwdaPPXlRv14EHtYcQDCOghj9EdyKLMkAOODBh3HHAx5r7QRylDYCOaXa/b/edgBLDpA==
 
+boolean@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/boolean/-/boolean-3.0.1.tgz#35ecf2b4a2ee191b0b44986f14eb5f052a5cbb4f"
+  integrity sha512-HRZPIjPcbwAVQvOTxR4YE3o8Xs98NqbbL1iEZDCz7CL8ql0Lt5iOyJFxfnAB0oFs8Oh02F/lLlg30Mexv46LjA==
+
 boxen@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-3.2.0.tgz#fbdff0de93636ab4450886b6ff45b92d098f45eb"
