@@ -20,6 +20,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     validationErrorTransform: {},
     // <https://github.com/mblarsen/mongoose-hidden>
     mongooseHidden: {},
+    uniqueId: true,
     ...options
   };
 
@@ -58,6 +59,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     next();
   });
 
+  const hidden = {};
   let select = '';
 
   const field =
@@ -72,33 +74,51 @@ const mongooseCommonPlugin = (schema, options = {}) => {
       .concat(omitExtraFields)
       .map(key => {
         key = key.trim();
-        if (key.indexOf('-') === 0) return key;
+        if (key.startsWith('-')) {
+          hidden[key.slice(1)] = true;
+          return key;
+        }
+
+        hidden[key] = true;
         return `-${key}`;
       })
       .join(' ');
-  } else if (
-    typeof omitExtraFields === 'object' &&
-    !Array.isArray(omitExtraFields)
-  ) {
+  } else if (typeof omitExtraFields === 'object') {
     select = omitExtraFields;
-    if (omitCommonFields) Object.assign(select, field.obj);
+    for (const prop in omitExtraFields) {
+      if (Object.prototype.hasOwnProperty.call(omitExtraFields, prop))
+        hidden[prop] = !boolean(omitExtraFields[prop]);
+    }
+
+    if (omitCommonFields) {
+      Object.assign(select, field.obj);
+      for (const prop in field.obj) {
+        if (Object.prototype.hasOwnProperty.call(field.obj, prop))
+          hidden[prop] = !boolean(field.obj[prop]);
+      }
+    }
   } else if (omitCommonFields) {
     select = field.str;
+    for (const prop in field.obj) {
+      if (Object.prototype.hasOwnProperty.call(field.obj, prop))
+        hidden[prop] = !boolean(field.obj[prop]);
+    }
   }
+
+  //
+  // TODO: we should probably set a few of the props to `select: false`
+  // by default (as similar to `passport-local-mongoose` on `hash` and `password`)
+  //
 
   schema.set('toJSON', {
     getters: true,
     virtuals: true,
-    versionKey: false,
-    select,
     ...schema.options.toJSON
   });
 
   schema.set('toObject', {
     getters: true,
     virtuals: true,
-    versionKey: false,
-    select,
     ...schema.options.toObject
   });
 
@@ -108,7 +128,10 @@ const mongooseCommonPlugin = (schema, options = {}) => {
   });
 
   schema.plugin(uniqueValidator, options.uniqueValidator);
-  schema.plugin(mongooseHidden, options.mongooseHidden);
+  schema.plugin(mongooseHidden, {
+    hidden,
+    ...options.mongooseHidden
+  });
   schema.plugin(validationErrorTransform, options.validationErrorTransform);
 
   return schema;
