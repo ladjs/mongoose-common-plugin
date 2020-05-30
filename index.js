@@ -1,5 +1,5 @@
-const jsonSelect = require('mongoose-json-select');
 const mongooseErrorMessages = require('@ladjs/mongoose-error-messages');
+const mongooseHidden = require('mongoose-hidden')();
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
 const uniqueValidator = require('mongoose-unique-validator');
 const validationErrorTransform = require('mongoose-validation-error-transform');
@@ -18,8 +18,8 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     },
     // <https://github.com/niftylettuce/mongoose-validation-error-transform>
     validationErrorTransform: {},
-    // <https://github.com/nkzawa/mongoose-json-select>
-    jsonSelect: {},
+    // <https://github.com/mblarsen/mongoose-hidden>
+    mongooseHidden: {},
     ...options
   };
 
@@ -88,9 +88,18 @@ const mongooseCommonPlugin = (schema, options = {}) => {
 
   schema.set('toJSON', {
     getters: true,
+    virtuals: true,
     versionKey: false,
     select,
     ...schema.options.toJSON
+  });
+
+  schema.set('toObject', {
+    getters: true,
+    virtuals: true,
+    versionKey: false,
+    select,
+    ...schema.options.toObject
   });
 
   schema.set('timestamps', {
@@ -99,7 +108,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
   });
 
   schema.plugin(uniqueValidator, options.uniqueValidator);
-  schema.plugin(jsonSelect, options.jsonSelect);
+  schema.plugin(mongooseHidden, options.mongooseHidden);
   schema.plugin(validationErrorTransform, options.validationErrorTransform);
 
   return schema;

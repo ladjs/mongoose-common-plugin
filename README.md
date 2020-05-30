@@ -71,7 +71,7 @@ module.exports = mongoose.model('User', User);
   omitCommonFields: true,
 
   // either an Array or Object
-  // these will get added to `mongoose-json-select`
+  // these will get added to `mongoose-hidden`
   // and are extra fields you'd like to ignore from toJSON calls
   // (e.g. `omitExtraFields: [ 'some_field_to_ignore' ]`)
   // note that we automatically add the `-` prefix to keys for Arrays passed
@@ -86,9 +86,9 @@ module.exports = mongoose.model('User', User);
   // <https://github.com/niftylettuce/mongoose-validation-error-transform>
   validationErrorTransform: {},
 
-  // options to pass to `mongoose-json-select`
-  // <https://github.com/nkzawa/mongoose-json-select>
-  jsonSelect: {}
+  // options to pass to `mongoose-hidden`
+  // <https://github.com/mblarsen/mongoose-hidden>
+  mongooseHidden: {}
 }
 ```
 
