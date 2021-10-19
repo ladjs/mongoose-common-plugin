@@ -5,29 +5,28 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const mongooseCommonPlugin = require('..');
 
-const mongoServer = new MongoMemoryServer();
+const mongooseOpts = {
+  autoReconnect: true,
+  reconnectTries: Number.MAX_VALUE,
+  reconnectInterval: 1000
+};
 
-mongoose.Promise = global.Promise;
-mongoServer.getUri().then(mongoUri => {
-  const mongooseOpts = {
-    autoReconnect: true,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 1000
-  };
+test.before(async () => {
+  const mongod = await MongoMemoryServer.create();
+  const uri = mongod.getUri();
+  await mongoose.connect(uri, mongooseOpts);
 
-  mongoose.connect(mongoUri, mongooseOpts);
-
-  mongoose.connection.on('error', e => {
+  mongoose.connection.on('error', async e => {
     if (e.message.code === 'ETIMEDOUT') {
       console.log(e);
-      mongoose.connect(mongoUri, mongooseOpts);
+      await mongoose.connect(uri, mongooseOpts);
     }
 
     console.log(e);
   });
 
   mongoose.connection.once('open', () => {
-    console.log(`MongoDB successfully connected to ${mongoUri}`);
+    console.log(`MongoDB successfully connected to ${uri}`);
   });
 });
 
