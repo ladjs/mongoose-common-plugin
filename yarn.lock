@@ -4345,7 +4345,7 @@ mongoose-omit-common-fields@^0.0.5:
   dependencies:
     camelcase "^6.0.0"
 
-mongoose-unique-validator@^2.0.3:
+mongoose-unique-validator@2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/mongoose-unique-validator/-/mongoose-unique-validator-2.0.3.tgz#247adbcda391bf5bc63fc3dcd43286a9ec833fa4"
   integrity sha512-3/8pmvAC1acBZS6eWKAWQUiZBlARE1wyWtjga4iQ2wDJeOfRlIKmAvTNHSZXKaAf7RCRUd7wh7as6yWAOrjpQg==

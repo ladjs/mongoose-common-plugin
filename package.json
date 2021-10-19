@@ -20,7 +20,7 @@
     "boolean": "^3.0.1",
     "mongoose-hidden": "^1.9.0",
     "mongoose-omit-common-fields": "^0.0.5",
-    "mongoose-unique-validator": "^2.0.3",
+    "mongoose-unique-validator": "2.0.3",
     "mongoose-validation-error-transform": "^0.0.5",
     "speakingurl": "^14.0.1"
   },
