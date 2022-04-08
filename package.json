@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@ladjs/mongoose-error-messages": "^1.0.0",
-    "boolean": "^3.0.1",
+    "boolean": "^3.2.0",
     "mongoose-hidden": "^1.9.0",
     "mongoose-omit-common-fields": "^0.0.5",
     "mongoose-unique-validator": "2.0.3",
