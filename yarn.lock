@@ -4392,10 +4392,10 @@ mongoose-unique-validator@2.0.3:
     lodash.foreach "^4.1.0"
     lodash.get "^4.0.2"
 
-mongoose-validation-error-transform@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/mongoose-validation-error-transform/-/mongoose-validation-error-transform-0.0.5.tgz#26e0cfbf83b2880fd17ec52b3233843729d61663"
-  integrity sha512-DFCIJ+zDgx9EpjFoRbOIfDPTAQO0f144YsTWjPuyon7I7zUTBeJ/poBKd8q5diIeRc5Sk/nTFC35LBHOd3QmfQ==
+mongoose-validation-error-transform@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mongoose-validation-error-transform/-/mongoose-validation-error-transform-0.0.6.tgz#7e7341260278e9369df34b8109627fc91d870f36"
+  integrity sha512-qhfezZmS0AIM9K3mGJXpcLtUjYDnCV0zuBc4Sr6CfMqUzddtJzDaooNONLrGShNNQ6oVfyZ8ZqWUR1P5z/gyGQ==
   dependencies:
     capitalize "^2.0.0"
     humanize-string "^2.1.0"
