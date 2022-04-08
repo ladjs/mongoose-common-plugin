@@ -4377,10 +4377,10 @@ mongoose-legacy-pluralize@1.0.2:
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
   integrity sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
 
-mongoose-omit-common-fields@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/mongoose-omit-common-fields/-/mongoose-omit-common-fields-0.0.5.tgz#8dad83ed4454b0365780b3ea00616daca8f718fe"
-  integrity sha512-01nJjyJZ/acK+awpRjYeeMFl7F4ehdcH7iP76d46V9cRCREphbwETclwNfJupXn8R+ALGovJQObHIlOYedrgxA==
+mongoose-omit-common-fields@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mongoose-omit-common-fields/-/mongoose-omit-common-fields-0.0.6.tgz#6e69e03eb125a430cd31e5cbcc841c7b40b7d21c"
+  integrity sha512-1KZtgcy1sdYntPV+/LrDksPUdrs+Oket1mgQiVy+rqv9jH7UowP8AlJT2+hecnG6WXF+bTGgU2qhRFmL1YCu8A==
   dependencies:
     camelcase "^6.0.0"
 
