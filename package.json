@@ -1,58 +1,49 @@
 {
   "name": "mongoose-common-plugin",
   "description": "Common plugin for Mongoose with standard schema fields and localization support",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
   "bugs": {
     "url": "https://github.com/ladjs/mongoose-common-plugin/issues",
     "email": "niftylettuce@gmail.com"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "contributors": [
     "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
   ],
   "dependencies": {
     "@ladjs/mongoose-error-messages": "^1.0.0",
-    "boolean": "^3.0.1",
-    "mongoose-hidden": "^1.9.0",
-    "mongoose-omit-common-fields": "^0.0.5",
-    "mongoose-unique-validator": "2.0.3",
-    "mongoose-validation-error-transform": "^0.0.5",
+    "boolean": "^3.2.0",
+    "mongoose-hidden": "^1.9.1",
+    "mongoose-omit-common-fields": "^0.0.6",
+    "mongoose-unique-validator": "3.1.0",
+    "mongoose-validation-error-transform": "^0.0.6",
     "speakingurl": "^14.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "ava": "^3.8.2",
-    "codecov": "^3.7.0",
-    "cross-env": "^7.0.2",
-    "eslint": "6.x",
-    "eslint-config-xo-lass": "^1.0.3",
-    "fixpack": "^3.0.6",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.7",
-    "mongodb-memory-server": "^6.6.1",
-    "mongoose": "^5.9.16",
-    "nyc": "^15.0.1",
-    "remark-cli": "^8.0.0",
-    "remark-preset-github": "^1.0.1",
-    "sinon": "^9.0.2",
-    "xo": "0.25"
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "ava": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "8.x",
+    "eslint-config-xo-lass": "^2.0.1",
+    "fixpack": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "mongodb-memory-server": "^8.7.2",
+    "mongoose": "^6.4.2",
+    "nyc": "^15.1.0",
+    "remark-cli": "^11.0.0",
+    "remark-preset-github": "^4.0.4",
+    "sinon": "^14.0.0",
+    "xo": "0.50"
   },
   "engines": {
-    "node": ">=8.3"
+    "node": ">=14"
   },
+  "files": [
+    "index.js"
+  ],
   "homepage": "https://github.com/ladjs/mongoose-common-plugin",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "keywords": [
     "common",
     "created",
@@ -76,33 +67,14 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "prettier": {
-    "singleQuote": true,
-    "bracketSpacing": true,
-    "trailingComma": "none"
-  },
-  "remarkConfig": {
-    "plugins": [
-      "preset-github"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ladjs/mongoose-common-plugin"
   },
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "xo && remark . -qfo",
-    "precommit": "lint-staged && npm test",
-    "test": "npm run lint && npm run test-coverage",
-    "test-coverage": "cross-env NODE_ENV=test nyc ava"
-  },
-  "xo": {
-    "prettier": true,
-    "space": true,
-    "extends": [
-      "xo-lass"
-    ]
-  },
-  "files": [ "index.js" ]
+    "lint": "xo --fix && remark . -qfo && fixpack",
+    "prepare": "husky install",
+    "pretest": "npm run lint",
+    "test": "cross-env NODE_ENV=test nyc ava"
+  }
 }

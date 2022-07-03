@@ -1,11 +1,10 @@
 # mongoose-common-plugin
 
-[![build status](https://img.shields.io/travis/ladjs/mongoose-common-plugin.svg)](https://travis-ci.org/ladjs/mongoose-common-plugin)
-[![code coverage](https://img.shields.io/codecov/c/github/ladjs/mongoose-common-plugin.svg)](https://codecov.io/gh/ladjs/mongoose-common-plugin)
+[![build status](https://github.com/ladjs/mongoose-common-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/ladjs/mongoose-common-plugin/actions/workflows/ci.yml)
 [![code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![made with lass](https://img.shields.io/badge/made_with-lass-95CC28.svg)](https://lass.js.org)
-[![license](https://img.shields.io/github/license/ladjs/mongoose-common-plugin.svg)](<>)
+[![license](https://img.shields.io/github/license/ladjs/mongoose-common-plugin.svg)]()
 
 > Common plugin for Mongoose with standard schema fields and localization support
 
@@ -26,12 +25,6 @@
 
 ```sh
 npm install mongoose-common-plugin
-```
-
-[yarn][]:
-
-```sh
-yarn add mongoose-common-plugin
 ```
 
 
@@ -146,11 +139,9 @@ try {
 [MIT](LICENSE) © [Nick Baugh](http://niftylettuce.com/)
 
 
-## 
+##
 
 [npm]: https://www.npmjs.com/
-
-[yarn]: https://yarnpkg.com/
 
 [i18n]: https://github.com/mashpie/i18n-node
 

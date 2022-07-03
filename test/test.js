@@ -5,42 +5,27 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const mongooseCommonPlugin = require('..');
 
-const mongooseOpts = {
-  autoReconnect: true,
-  reconnectTries: Number.MAX_VALUE,
-  reconnectInterval: 1000
-};
+const server = new MongoMemoryServer();
 
 test.before(async () => {
-  const mongod = await MongoMemoryServer.create();
-  const uri = mongod.getUri();
-  await mongoose.connect(uri, mongooseOpts);
-
-  mongoose.connection.on('error', async e => {
-    if (e.message.code === 'ETIMEDOUT') {
-      console.log(e);
-      await mongoose.connect(uri, mongooseOpts);
-    }
-
-    console.log(e);
-  });
-
-  mongoose.connection.once('open', () => {
-    console.log(`MongoDB successfully connected to ${uri}`);
-  });
+  await server.start();
+  await mongoose.connect(server.getUri());
 });
 
-const BlogPost = new mongoose.Schema({
-  title: { type: String, required: true }
+test.after(async () => {
+  await server.stop();
 });
-BlogPost.plugin(mongooseCommonPlugin, { object: 'blog_post' });
-const BlogPosts = mongoose.model('BlogPost', BlogPost);
 
-test('returns function', t => {
+test('returns function', (t) => {
   t.true(typeof mongooseCommonPlugin === 'function');
 });
 
-test('creates document', async t => {
+test('creates document', async (t) => {
+  const BlogPost = new mongoose.Schema({
+    title: { type: String, required: true }
+  });
+  BlogPost.plugin(mongooseCommonPlugin, { object: 'blog_post' });
+  const BlogPosts = mongoose.model('BlogPost', BlogPost);
   const blogPost = await BlogPosts.create({ title: 'creates document' });
 
   t.is(typeof blogPost, 'object');
@@ -48,14 +33,14 @@ test('creates document', async t => {
   t.is(blogPost.locale, 'en');
 });
 
-test('errors if object is not string', t => {
+test('errors if object is not string', (t) => {
   const Schema = new mongoose.Schema({ title: String });
   t.throws(() => Schema.plugin(mongooseCommonPlugin, { object: 45 }), {
     message: "You must define an `object` name (e.g. `{ object: 'user' }`)"
   });
 });
 
-test('omits extra fields', async t => {
+test('omits extra fields', async (t) => {
   const Schema = new mongoose.Schema({
     title: String,
     test: String
@@ -76,21 +61,15 @@ test('omits extra fields', async t => {
   t.is(typeof obj.title, 'string');
 });
 
-test.serial('omitExtraFields as object', async t => {
+test.serial('omitExtraFields as object', async (t) => {
   const omitExtraFields = {
     title: false,
     test: false
   };
 
   const hasOwnProperty = sinon.stub(Object.prototype, 'hasOwnProperty');
-  hasOwnProperty
-    .withArgs('title')
-    .onFirstCall()
-    .returns(false);
-  hasOwnProperty
-    .withArgs('password')
-    .onFirstCall()
-    .returns(false);
+  hasOwnProperty.withArgs('title').onFirstCall().returns(false);
+  hasOwnProperty.withArgs('password').onFirstCall().returns(false);
   hasOwnProperty.callThrough();
 
   const Schema = new mongoose.Schema({
@@ -118,17 +97,14 @@ test.serial('omitExtraFields as object', async t => {
   sinon.restore();
 });
 
-test.serial('omitExtraFields as object and no commmon fields', async t => {
+test.serial('omitExtraFields as object and no commmon fields', async (t) => {
   const omitExtraFields = {
     title: false,
     test: false
   };
 
   const hasOwnProperty = sinon.stub(Object.prototype, 'hasOwnProperty');
-  hasOwnProperty
-    .withArgs('title')
-    .onFirstCall()
-    .returns(false);
+  hasOwnProperty.withArgs('title').onFirstCall().returns(false);
   hasOwnProperty.callThrough();
 
   const Schema = new mongoose.Schema({
@@ -157,12 +133,9 @@ test.serial('omitExtraFields as object and no commmon fields', async t => {
   sinon.restore();
 });
 
-test.serial('omitCommonFields', async t => {
+test.serial('omitCommonFields', async (t) => {
   const hasOwnProperty = sinon.stub(Object.prototype, 'hasOwnProperty');
-  hasOwnProperty
-    .withArgs('password')
-    .onFirstCall()
-    .returns(false);
+  hasOwnProperty.withArgs('password').onFirstCall().returns(false);
   hasOwnProperty.callThrough();
 
   const Schema = new mongoose.Schema({
@@ -190,7 +163,7 @@ test.serial('omitCommonFields', async t => {
   sinon.restore();
 });
 
-test('does not omitCommonFields', async t => {
+test('does not omitCommonFields', async (t) => {
   const Schema = new mongoose.Schema({
     title: String,
     password: String,
@@ -215,18 +188,21 @@ test('does not omitCommonFields', async t => {
   t.is(typeof obj.title, 'string');
 });
 
-test('no locale', async t => {
-  BlogPost.plugin(mongooseCommonPlugin, {
+test('no locale', async (t) => {
+  const NoLocaleBlogPost = new mongoose.Schema({
+    title: { type: String, required: true }
+  });
+  NoLocaleBlogPost.plugin(mongooseCommonPlugin, {
     object: 'no_locale',
     locale: false
   });
-  const Model = mongoose.model('NoLocale', BlogPost);
+  const Model = mongoose.model('NoLocale', NoLocaleBlogPost);
 
   const model = await Model.create({ title: 'no locale' });
   t.is(typeof model.locale, 'undefined');
 });
 
-test('camel case', async t => {
+test('camel case', async (t) => {
   const Schema = new mongoose.Schema({
     title: String,
     password: String,
@@ -251,7 +227,7 @@ test('camel case', async t => {
   t.is(typeof obj.title, 'string');
 });
 
-test('omits extra fields but not common fields', async t => {
+test('omits extra fields but not common fields', async (t) => {
   const Schema = new mongoose.Schema({
     title: String,
     test: String,
