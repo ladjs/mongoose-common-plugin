@@ -11,6 +11,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     camelCase: false,
     locale: true,
     omitCommonFields: true,
+    defaultLocale: 'en',
     omitExtraFields: [],
     // <https://github.com/blakehaswell/mongoose-unique-validator>
     uniqueValidator: {
@@ -47,7 +48,7 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     schema
       .virtual('locale')
       .get(function() {
-        return this.__locale;
+        return this.__locale || options.defaultLocale;
       })
       .set(function(locale) {
         this.__locale = locale;
