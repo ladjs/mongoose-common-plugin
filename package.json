@@ -103,5 +103,6 @@
     "extends": [
       "xo-lass"
     ]
-  }
+  },
+  "files": [ "index.js" ]
 }
