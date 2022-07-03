@@ -60,6 +60,9 @@ module.exports = mongoose.model('User', User);
   // (super useful for adding Mongoose validation errors that are localized)
   locale: true,
 
+  // default locale used (e.g. you could use `i18n.defaultLocale()` if using @ladjs/i18n)
+  defaultLocale: 'en',
+
   // whether or not to use `mongoose-omit-common-fields`
   omitCommonFields: true,
 
