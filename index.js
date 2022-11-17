@@ -1,7 +1,7 @@
 const mongooseErrorMessages = require('@ladjs/mongoose-error-messages');
 const mongooseHidden = require('mongoose-hidden')();
 const mongooseOmitCommonFields = require('mongoose-omit-common-fields');
-const uniqueValidator = require('mongoose-unique-validator');
+const uniqueValidator = require('@ladjs/mongoose-unique-validator');
 const validationErrorTransform = require('mongoose-validation-error-transform');
 const { boolean } = require('boolean');
 
