@@ -125,7 +125,9 @@ const mongooseCommonPlugin = (schema, options = {}) => {
     updatedAt: options.camelCase ? 'updatedAt' : 'updated_at'
   });
 
-  schema.plugin(uniqueValidator, options.uniqueValidator);
+  // allow disabling uniqueValidator by passing `uniqueValidator: false`
+  if (options.uniqueValidator !== false)
+    schema.plugin(uniqueValidator, options.uniqueValidator);
   schema.plugin(mongooseHidden, {
     hidden,
     ...options.mongooseHidden
